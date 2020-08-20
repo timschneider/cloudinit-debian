@@ -1,0 +1,10 @@
+--- util.py.orig        2020-08-20 11:16:14.845234176 +0200
++++ util.py     2020-08-20 11:17:38.902245406 +0200
+@@ -1247,6 +1247,7 @@
+
+ def find_devs_with_freebsd(criteria=None, oformat='device',
+                            tag=None, no_cache=False, path=None):
++    devlist = []
+     if not criteria:
+         return glob.glob("/dev/msdosfs/*") + glob.glob("/dev/iso9660/*")
+     if criteria.startswith("LABEL="):

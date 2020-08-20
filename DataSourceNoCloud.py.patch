@@ -1,0 +1,10 @@
+--- sources/DataSourceNoCloud.py.orig   2020-08-20 11:13:47.848326894 +0200
++++ sources/DataSourceNoCloud.py        2020-08-20 11:15:20.621947247 +0200
+@@ -41,6 +41,7 @@
+
+         label_list = util.find_devs_with("LABEL=%s" % label.upper())
+         label_list.extend(util.find_devs_with("LABEL=%s" % label.lower()))
++        label_list.extend(util.find_devs_with("LABEL_FATBOOT=%s" % label))
+
+         devlist = list(set(fslist) & set(label_list))
+         devlist.sort(reverse=True)

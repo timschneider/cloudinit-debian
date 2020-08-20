@@ -1,0 +1,14 @@
+--- ds-identify.orig    2020-08-20 11:14:01.885176866 +0200
++++ ds-identify 2020-08-20 11:19:28.948818934 +0200
+@@ -266,8 +266,9 @@
+                     isodevs="${isodevs},${dev}=$label"
+                 ftype=""; dev=""; label="";
+                 dev=${line#DEVNAME=};;
+-            LABEL=*) label="${line#LABEL=}";
+-                     labels="${labels}${line#LABEL=}${delim}";;
++            LABEL=*|LABEL_FATBOOT=*)
++                label="${line#*=}";
++                labels="${labels}${label}${delim}";;
+             TYPE=*) ftype=${line#TYPE=};;
+             UUID=*) uuids="${uuids}${line#UUID=}$delim";;
+         esac
